@@ -1,0 +1,8 @@
+{
+  "cSpell.words": ["spdlog"],
+  "files.associations": {
+    "*.erd": "json",
+    "*.vuerd": "json",
+    "memory": "cpp"
+  }
+}

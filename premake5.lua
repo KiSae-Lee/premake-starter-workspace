@@ -3,26 +3,6 @@ workspace "PremakeStarterWorkspace"
    platforms {"Win64"}
    location "build"
 
-project "client"
-   kind "ConsoleApp"
-   language "C++"
-   cppdialect "C++17"
-   targetdir "bin/%{cfg.buildcfg}/client"
-   location "build/client"
-
-   links{ "library" }
-   includedirs{"library/src"}
-
-   files { "client/src/**.h", "client/src/**.cpp" }
-
-   filter "configurations:Debug"
-      defines { "DEBUG" }
-      symbols "On"
-
-   filter "configurations:Release"
-      defines { "NDEBUG" }
-      optimize "On"
-
 project "library"
    kind "StaticLib"
    language "C++"
@@ -40,6 +20,26 @@ project "library"
       defines { "DEBUG" }
       symbols "On"
 
+   filter "configurations:Release"
+      defines { "NDEBUG" }
+      optimize "On"
+
+project "client"
+   kind "ConsoleApp"
+   language "C++"
+   cppdialect "C++17"
+   targetdir "bin/%{cfg.buildcfg}/client"
+   location "build/client"
+   
+   links{ "library" }
+   includedirs{"library/src", "library/external/spdlog/include"}
+   
+   files { "client/src/**.h", "client/src/**.cpp" }
+   
+   filter "configurations:Debug"
+      defines { "DEBUG" }
+      symbols "On"
+   
    filter "configurations:Release"
       defines { "NDEBUG" }
       optimize "On"

@@ -1,13 +1,13 @@
 #include <iostream>
-#include "class.h"
+#include "library.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello, World!" << endl;
+    Library::Log::Initialize();
 
-    auto myClass = new MyClass();
+    TRACE("Hello, World!");
 
     return 0;
 }
