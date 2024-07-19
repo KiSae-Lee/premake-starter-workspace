@@ -1,10 +1,11 @@
 #include "class.h"
+#include "spdlog/spdlog.h"
 
 using namespace std;
 
 MyClass::MyClass()
 {
-    cout << "I'm constructor!" << endl;
+    SPDLOG_INFO("I'm constructor!");
 }
 
 MyClass::~MyClass()

@@ -1,3 +1,6 @@
 [submodule "external/premake-core"]
 	path = external/premake-core
 	url = https://github.com/premake/premake-core.git
+[submodule "library/external/spdlog"]
+	path = library/external/spdlog
+	url = https://github.com/gabime/spdlog.git

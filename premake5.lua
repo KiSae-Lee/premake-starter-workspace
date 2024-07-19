@@ -10,6 +10,9 @@ project "client"
    targetdir "bin/%{cfg.buildcfg}/client"
    location "build/client"
 
+   links{ "library" }
+   includedirs{"library/src"}
+
    files { "client/src/**.h", "client/src/**.cpp" }
 
    filter "configurations:Debug"
@@ -26,6 +29,10 @@ project "library"
    cppdialect "C++17"
    targetdir "bin/%{cfg.buildcfg}/library"
    location "build/library"
+
+   libdirs {"library/external/spdlog/build/Release/"}
+   links{ "spdlog" }
+   includedirs{"library/external/spdlog/include"}
 
    files { "library/src/**.h", "library/src/**.cpp" }
 
